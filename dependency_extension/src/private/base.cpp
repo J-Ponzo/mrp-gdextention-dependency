@@ -17,5 +17,5 @@ Base::~Base() {
 }
 
 void Base::foo() {
-	UtilityFunctions::print("ORC_RendererBase.foo() invoked");
+	UtilityFunctions::print("Base.foo() invoked");
 }
