@@ -1,0 +1,22 @@
+#!/usr/bin/env python
+import os
+import sys
+
+dependency_path = os.path.abspath("../dependency_extension")
+env = SConscript("../godot-cpp-4.5/SConstruct")
+
+env.Append(CPPPATH=[
+    "src/public",
+    f"{dependency_path}/src/public",
+    ])
+lib_name = "libdependency{}".format(env["suffix"])
+env.Append(LIBPATH=[f"{dependency_path}/bin"])
+env.Append(LIBS=[lib_name])
+sources = Glob("src/private/*.cpp")
+
+library = env.SharedLibrary(
+    "bin/libmain{}{}".format(env["suffix"], env["SHLIBSUFFIX"]),
+    source=sources,
+)
+
+Default(library)

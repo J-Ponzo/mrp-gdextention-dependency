@@ -3,9 +3,15 @@
 
 #include <godot_cpp/classes/ref_counted.hpp>
 
+#ifdef DEPENDENCY_EXPORTS
+#define DEPENDENCY_API __declspec(dllexport)
+#else
+#define DEPENDENCY_API __declspec(dllimport)
+#endif
+
 namespace godot {
 
-class Base : public RefCounted {
+class DEPENDENCY_API Base : public RefCounted {
 	GDCLASS(Base, RefCounted)
 
 protected:

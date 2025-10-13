@@ -5,6 +5,7 @@ import sys
 env = SConscript("../godot-cpp-4.5/SConstruct")
 
 env.Append(CPPPATH=["src/public"])
+env.Append(CPPDEFINES=["DEPENDENCY_EXPORTS"])
 sources = Glob("src/private/*.cpp")
 
 library = env.SharedLibrary(

@@ -27,3 +27,11 @@ mono_crash.*.json
 *.exp
 *.ilk
 */.sconsign.dblite
+
+# Share my libs for reproduction
+!libmain.windows.template_debug.x86_64.dll
+!libmain.windows.template_debug.x86_64.exp
+!libmain.windows.template_debug.x86_64.lib
+!libdependency.windows.template_debug.x86_64.dll
+!libdependency.windows.template_debug.x86_64.exp
+!libdependency.windows.template_debug.x86_64.lib
