@@ -1,0 +1,15 @@
+#!/usr/bin/env python
+import os
+import sys
+
+env = SConscript("../godot-cpp-4.5/SConstruct")
+
+env.Append(CPPPATH=["src/public"])
+sources = Glob("src/private/*.cpp")
+
+library = env.SharedLibrary(
+    "bin/libdependency{}{}".format(env["suffix"], env["SHLIBSUFFIX"]),
+    source=sources,
+)
+
+Default(library)
