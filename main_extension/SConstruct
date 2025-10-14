@@ -9,9 +9,8 @@ env.Append(CPPPATH=[
     "src/public",
     f"{dependency_path}/src/public",
     ])
-lib_name = "libdependency{}".format(env["suffix"])
 env.Append(LIBPATH=[f"{dependency_path}/bin"])
-env.Append(LIBS=[lib_name])
+env.Append(LIBS=["libdependency.windows.template_debug.x86_64"])
 sources = Glob("src/private/*.cpp")
 
 library = env.SharedLibrary(
