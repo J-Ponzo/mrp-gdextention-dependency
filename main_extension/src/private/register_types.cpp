@@ -8,7 +8,7 @@
 #include <godot_cpp/classes/project_settings.hpp>
 #include <godot_cpp/variant/utility_functions.hpp>
 
-#include <windows.h>
+// #include <windows.h>
 
 using namespace godot;
 
@@ -26,17 +26,17 @@ void uninitialize_main_module(ModuleInitializationLevel p_level) {
 	}
 }
 
-void add_dll_search_dir() {
-	String res_path = "res://dependency_extension/bin/";
-	String abs_path = ProjectSettings::get_singleton()->globalize_path(res_path);
-    SetDllDirectory(abs_path.utf8().get_data());
-	UtilityFunctions::print("Add dependency folder to dll search folders : ", abs_path.utf8().get_data());
-}
+// void add_dll_search_dir() {
+	// String res_path = "res://dependency_extension/bin/";
+	// String abs_path = ProjectSettings::get_singleton()->globalize_path(res_path);
+    // SetDllDirectory(abs_path.utf8().get_data());
+	// UtilityFunctions::print("Add dependency folder to dll search folders : ", abs_path.utf8().get_data());
+// }
 
 extern "C" {
 // Initialization.
 GDExtensionBool GDE_EXPORT main_library_init(GDExtensionInterfaceGetProcAddress p_get_proc_address, const GDExtensionClassLibraryPtr p_library, GDExtensionInitialization *r_initialization) {
-	add_dll_search_dir();
+	// add_dll_search_dir();
 	
 	godot::GDExtensionBinding::InitObject init_obj(p_get_proc_address, p_library, r_initialization);
 
